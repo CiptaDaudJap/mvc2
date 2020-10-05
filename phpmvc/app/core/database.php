@@ -81,5 +81,13 @@ class DATABASE {
             $this->execute();
             return $this->stmt->fetch(PDO::FETCH_ASSOC);
         }
+        // utk menghitung berapa baris yg berubah di dlm tabelnya
+        // jika berubah berarti ada insert / update/ delete
+        // utk nama public function rowCount() itu punya kita
+        // yg bawah nya itu punya PDO 
+        public function rowCount()
+        {
+              return $this->stmt->rowCount();
+        }
 
 }

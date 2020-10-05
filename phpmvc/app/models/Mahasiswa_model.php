@@ -29,8 +29,28 @@
         // kalau all pakai resultset 
         $this->db->bind('id', $id);
         return $this->db->single();
+    }
+    // data dari mahasiswa.php function tambah , insrt data nya di sini
+    // isi nya sesuai dgn struct data basenya 
+    public function tambahDataMahasiswa($data)
+    {
+       $query = "INSERT INTO mahasiswa
+                    VALUES
+                    ('', :nama, :nrp, :email, :jurusan)";
+       $this->db->query($query);     
+       // baru kita binding ke data base,pastikan semua sama dgn isi
+       // name nya di masing masing input di index
+       $this->db->bind('nama', $data['nama']);
+       $this->db->bind('nrp', $data['nrp']);
+       $this->db->bind('email', $data['email']);
+       $this->db->bind('jurusan', $data['jurusan']);
+       
+       $this->db->execute();
+       // jika berhasil maka ini menghasilkan angka 1 ada perubahan 
+       return $this->db->rowCount();
 
     }
+
    }
 
 

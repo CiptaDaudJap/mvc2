@@ -29,3 +29,7 @@ ini kita buat di folder app utk proteksi dan public utk
 
 utk js copy scripnya ke 
 masukan k
+
+Pesan error:
+1. perhatikan warna kalau ada yg berbeda perhatikan tanda baca nya. 
+2. Parse error: syntax error, unexpected 'public' (T_PUBLIC), expecting end of file in E:\xampp\htdocs\phpmvc\app\core\Flasher.php on line 23

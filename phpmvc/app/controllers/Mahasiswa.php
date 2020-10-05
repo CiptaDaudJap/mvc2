@@ -24,5 +24,27 @@ class Mahasiswa extends Controller{
         $this->view('mahasiswa/detail', $data);
         $this->view('templates/footer');
     }
+    public function tambah()
+    {
+        // kita cek dulu apakah datanya di kirim ke sini 
+        // var_dump($_POST); ok benar 
+        // $_POST > 0 artinya ada penambahan baris data berarti ada data yg masuk ke sini maka jalankan ini utk 
+        // menghindari error jika kosong datanya lalu jalankan method
+        // tambahDataMahasiswa di mahasiswa_model 
+        if( $this->model('Mahasiswa_model')->tambahDataMahasiswa($_POST) > 0 ){
+            // jk berhasil , type success warna hijau 
+            // error sebelumnya kurang ' di para berhasil Flasher::setFlash('berhasil, 'ditambahkan', 'success'); ada beda warna itu pertanda nya 
+            Flasher::setFlash('berhasil', 'ditambahkan', 'success');
+            header('Location: ' . BASEURL . '/mahasiswa');
+            exit;
+        } else {
+            Flasher::setFlash('gagal', 'ditambahkan', 'danger');
+            header('Location: ' . BASEURL . '/mahasiswa');
+            exit;            
+        }
+
+
+    }
+
 
 }
